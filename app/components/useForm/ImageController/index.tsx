@@ -5,9 +5,9 @@ import get from 'lodash/get';
 import { X, Upload } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Controller, useFormContext } from 'react-hook-form';
-import useSinglePresignedUrl from '@/hooks/file/useSinglePresignedUrl';
-import useSingleFileUpload from '@/hooks/file/useSingleFileUpload';
-import useGetSingleFileUrl from '@/hooks/file/useGetSingleFileUrl';
+import useSinglePresignedUrl from '@/hooks/files/useSinglePresignedUrl';
+import useSingleFileUpload from '@/hooks/files/useSingleFileUpload';
+import useGetSingleFileUrl from '@/hooks/files/useGetSingleFileUrl';
 
 interface ImageUploaderProps {
   name: string;
@@ -70,7 +70,6 @@ export default function ImageUploader({
       fileSize: file.size,
       refId: meta?.refId || '',
       belongsTo: meta?.belongsTo || '',
-      isPubilc: meta?.isPublic || false,
     }).then(async (res) => {
       await uploadFile({ url: res.uploadUrl, file }).then(async (r) => {
         if (r.status === 200) {
