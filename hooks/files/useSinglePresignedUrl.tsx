@@ -18,8 +18,8 @@ const useSinglePresignedUrl = () => {
   }) => {
     try {
       const response = await axios.post(
-        // 'https://staging-backend.ryzer.app/api/s3-file/upload-single',
-        'http://localhost:5050/assets/upload-single',
+        'https://mgm-backend.vercel.app/assets/upload-single',
+        // 'http://localhost:5050/assets/upload-single',
         {
           fileName,
           mimeType,
