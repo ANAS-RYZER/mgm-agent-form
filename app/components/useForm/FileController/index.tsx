@@ -54,7 +54,7 @@ function FileUploadController({
 
   const handleFileChange = async (
     e: React.ChangeEvent<HTMLInputElement>,
-    onChange: (value: File | null) => void
+    onChange: (value: File | null) => void,
   ) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
@@ -66,7 +66,7 @@ function FileUploadController({
           type: "manual",
           message: `File size exceeds the limit of ${maxSize / 1024 / 1024} MB`,
         },
-        { shouldFocus: true }
+        { shouldFocus: true },
       );
       return;
     }
@@ -80,10 +80,14 @@ function FileUploadController({
       const uploadUrl = res.data?.uploadUrl ?? res.uploadUrl;
       const assetId = res.data?.assetS3Object?._id ?? res.assetS3Object?._id;
       if (!uploadUrl || !assetId) {
-        setError(name, {
-          type: "manual",
-          message: "Could not get upload URL. Please try again.",
-        }, { shouldFocus: true });
+        setError(
+          name,
+          {
+            type: "manual",
+            message: "Could not get upload URL. Please try again.",
+          },
+          { shouldFocus: true },
+        );
         return;
       }
       await uploadFile({ url: uploadUrl, file: selectedFile }).then(
@@ -92,16 +96,19 @@ function FileUploadController({
             const fileReponse = await getFileUrl(assetId);
             // Support s3Url, url, documentUrl, or gcpUrl from backend (GCP/S3 link)
             const documentUrl =
-            
               fileReponse?.data.url ??
               fileReponse?.documentUrl ??
               fileReponse?.gcpUrl ??
               (typeof fileReponse === "string" ? fileReponse : "");
             if (!documentUrl) {
-              setError(name, {
-                type: "manual",
-                message: "Could not get file link. Please upload again.",
-              }, { shouldFocus: true });
+              setError(
+                name,
+                {
+                  type: "manual",
+                  message: "Could not get file link. Please upload again.",
+                },
+                { shouldFocus: true },
+              );
               return;
             }
             setValue(
@@ -114,10 +121,10 @@ function FileUploadController({
                 shouldDirty: isDirty,
                 shouldTouch: isDirty,
                 shouldValidate: isDirty,
-              }
+              },
             );
           }
-        }
+        },
       );
     });
     // onChange(selectedFile);
@@ -132,7 +139,7 @@ function FileUploadController({
       },
       {
         shouldValidate: true,
-      }
+      },
     );
     onChange(null);
   };
@@ -168,7 +175,7 @@ function FileUploadController({
               className={cn(
                 "flex items-center gap-4 border rounded-lg p-3 w-full",
                 errors[name] && "border-destructive",
-                error && "border-destructive"
+                error && "border-destructive",
               )}
             >
               <div className="flex flex-1 items-center gap-2 min-w-0">
@@ -240,7 +247,7 @@ function FileUploadController({
                   type="file"
                   className="sr-only"
                   id={`file-${name}`}
-                  accept={accept?.map((ext) => `.${ext}`).join(",")}
+                  accept={accept?.join(",")}
                   onChange={(e) => handleFileChange(e, onChange)}
                   aria-describedby={`${name}-error`}
                 />

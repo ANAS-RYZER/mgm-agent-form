@@ -3,8 +3,8 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
-// const REGISTER_URL = 'http://localhost:5050/agents/register';
-const REGISTER_URL = 'https://mgm-backend.vercel.app/agents/register';
+const REGISTER_URL = 'http://localhost:5050/agents/register';
+// const REGISTER_URL = 'https://mgm-backend.vercel.app/agents/register';
 
 /** Form shape from onboarding (flat fields). */
 export interface OnboardingFormValues {
@@ -58,7 +58,7 @@ export interface RegisterAgentData {
   createdAt: string;
   updatedAt: string;
   __v?: number;
-  agentId: string;
+  applicationId: string;
 }
 
 /** Full API response: message + data. */
