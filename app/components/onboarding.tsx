@@ -145,7 +145,7 @@ export default function OnboardingForm() {
           <div className="flex items-center gap-2">
             <ArrowLeft className="cursor-pointer" onClick={() => router.back()} />
             <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Agent Registration
+              Partner Registration
             </h2>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
