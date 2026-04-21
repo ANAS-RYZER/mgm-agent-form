@@ -27,16 +27,16 @@ export default function Home() {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/70">
-                 Agent Network
+                 Partner Network
               </p>
               <h1 className="mt-0.5 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                MGM Agents
+                MGM Partner
               </h1>
             </div>
           </div>
           <p className="mt-4 max-w-xl text-base text-muted-foreground">
             Complete your registration and track your application status in real-time. Join our
-            prestigious network of premium agents.
+            prestigious network of premium partners.
           </p>
         </div>
       </header>
@@ -58,7 +58,7 @@ export default function Home() {
                   <div className="mb-5 flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <UserPlus className="size-7" />
                   </div>
-                  <h2 className="text-xl font-semibold text-foreground">Register as Agent</h2>
+                  <h2 className="text-xl font-semibold text-foreground">Register as Partner</h2>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Complete your onboarding to join our network. Submit your details, bank
                     information, and ID verification.
